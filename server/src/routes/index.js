@@ -6,7 +6,7 @@ import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
 
 let router = Router();
 
-
+router.use('/auth', authRouter);
 
 router.route('*')
     .post(tokenMiddleware, isLoggedIn)
@@ -15,6 +15,6 @@ router.route('*')
 
 router.use('/blogs', blogsRouter);
 router.use('/users', usersRouter);
-router.use('/auth', authRouter);
+
 
 export default router;
